@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="611.0" prefWidth="744.0" style="-fx-background-radius: 40;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.CatalogueVue2">
+   <children>
+      <!-- Image principale de la page -->
+      <ImageView fx:id="accueil" fitHeight="125.0" fitWidth="744.0" layoutX="-1.0" layoutY="50.0">
+         <image>
+            <Image url="@../../../Images/accueil.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="80.0" arcWidth="20.0" fill="WHITE" height="32.0" layoutX="146.0" layoutY="34.0" stroke="#2a3d4d" strokeType="INSIDE" strokeWidth="3.0" width="510.0" />
+
+      <!-- tout ce qui constitue la barre de recherche -->
+      <TextField fx:id="research" alignment="BOTTOM_CENTER" layoutX="150.0" layoutY="37.0" prefHeight="25.0" prefWidth="504.0" promptText="         Rechercher une marque à louer" style="-fx-background-radius: 8;" />
+      <ListView fx:id="suggestionListView" layoutX="150.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+      <ImageView fx:id="loupe" fitHeight="15.0" fitWidth="12.0" layoutX="160.0" layoutY="43.0">
+         <image>
+            <Image url="@../../../Images/loupe.png" />
+         </image>
+      </ImageView>
+
+      <!-- images du catalogue de voiture -->
+      <ImageView fx:id="voiture1" fitHeight="75.0" fitWidth="120.0" layoutX="35.0" layoutY="271.0" onMouseClicked="#handleVoiture1Click" onMouseEntered="#sombreImage" onMouseExited="#clairImage">
+         <image>
+            <Image url="@../../../Images/403487-2024-lamborghini-huracan.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="voiture2" fitHeight="104.0" fitWidth="120.0" layoutX="35.0" layoutY="355.0" onMouseClicked="#handleVoiture2Click" onMouseEntered="#sombreImage" onMouseExited="#clairImage">
+         <image>
+            <Image url="@../../../Images/S0-toyota-bz4x-670375.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="voiture3" fitHeight="87.0" fitWidth="120.0" layoutX="35.0" layoutY="467.0" onMouseClicked="#handleVoiture3Click" onMouseEntered="#sombreImage" onMouseExited="#clairImage">
+         <image>
+            <Image url="@../../../Images/tesla-model-x-03.jpg" />
+         </image>
+      </ImageView>
+
+      <!-- menu principal de la page  -->
+      <Button fx:id="acc" layoutY="171.0" mnemonicParsing="false" prefHeight="21.0"  styleClass="hover" prefWidth="120.0" style="-fx-background-color: black;" text="Accueil" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Button>
+      <Button  fx:id="reservation" ellipsisString="" graphicTextGap="2.0" layoutX="120.0" layoutY="171.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="139.0" styleClass="hover" style="-fx-background-color: black;" stylesheets="@style.css" text="vos réservations" textFill="WHITE"  onAction="#handleReservation">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="logout" layoutX="649.0" layoutY="576.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="80.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="Deconnexion" styleClass="hover" onAction="#handleLogout" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Light" size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="paies" layoutX="259.0" layoutY="171.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="146.0" style="-fx-background-color: black;"  styleClass="hover" text="vos paiements" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+
+      <!-- Elements divers de la page -->
+      <Separator layoutX="482.0" layoutY="192.0" orientation="VERTICAL" prefHeight="376.0" prefWidth="18.0" />
+      <Label fx:id="dispo" layoutX="226.0" layoutY="223.0" prefHeight="25.0" prefWidth="405.0" stylesheets="@style.css" text="Voitures Disponibles">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="232.0" prefHeight="27.0" prefWidth="139.0" text="Parcourir par marques" />
+
+      <!-- Textes pour le catalogue des produits -->
+      <Label layoutX="169.0" layoutY="271.0" style="-fx-font-weight: bold; -fx-text-fill: #2f2f76;" styleClass="lambo" stylesheets="@style.css" text="Lamborghini Huracan">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="355.0" prefHeight="17.0" prefWidth="139.0" style="-fx-font-weight: bold; -fx-text-fill: #2f2f76;" styleClass="toyota" text="Toyota BZ4X">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="166.0" layoutY="467.0" prefHeight="17.0" prefWidth="173.0" style="-fx-font-weight: bold; -fx-text-fill: #2f2f76;" styleClass="tesla" text="Tesla Model X3">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="288.0" prefHeight="21.0" prefWidth="276.0" style="-fx-font-style: italic;" styleClass="sloganlambo"  text="La quintessence de la puissance et du style" />
+      <Label layoutX="172.0" layoutY="368.0" prefHeight="28.0" prefWidth="293.0" style="-fx-font-style: italic;" styleClass="slogantoyota" text="L'avenir de la conduite écologique et confortable" />
+      <Label layoutX="167.0" layoutY="487.0" style="-fx-font-style: italic;" styleClass="slogantesla" text="La fusion parfaite de luxe, performance et durabilité." />
+      <Label layoutX="555.0" layoutY="259.0" prefHeight="25.0" prefWidth="100.0" text="Vos sélections ici!" />
+
+      <!-- différents boutons réserver  -->
+      <Button fx:id="reserverlambo" layoutX="167.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleReservationLambo"  styleClass="hover" style="-fx-background-color: blue;" text="Reserver" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="reservertoyota" layoutX="167.0" layoutY="436.0" mnemonicParsing="false" styleClass="hover" onAction="#handleReservationToyota" style="-fx-background-color: blue;" text="Reserver" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="reservertesla" layoutX="164.0" layoutY="530.0" mnemonicParsing="false"  styleClass="hover" onAction="#handleReservationTesla" style="-fx-background-color: blue;" text="Reserver" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+
+      <!-- éléments du menu de droite pour les sélections -->
+      <Label fx:id="champvoiture" layoutX="529.0" layoutY="299.0" prefHeight="17.0" prefWidth="182.0" styleClass="selection" text="">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="describe" layoutX="505.0" layoutY="328.0" prefHeight="125.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-width: 1px 1px 1px 1px; -fx-border-color: #092454;" styleClass="describe" text="" />
+      <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="505.0" layoutY="495.0">
+         <image>
+            <Image url="@../../../Images/dollar.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="542.0" layoutY="525.0" prefHeight="1.0" prefWidth="146.0" style="-fx-background-color: #092454;" />
+      <Label fx:id="price" layoutX="551.0" layoutY="491.0" prefHeight="38.0" prefWidth="146.0" styleClass="price" text="" textFill="#1a0ff5">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="551.0" layoutY="577.0" mnemonicParsing="false" onAction="#handlePrecedentAction" prefHeight="15.0" prefWidth="90.0" style="-fx-background-radius: 20;" text="précédent ">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
